@@ -31,7 +31,17 @@ function readLine() {
 
 function timeConversion(s) {
     // Write your code here
-
+    let h = parseInt(s.slice(0,2))
+    if (s.slice(8).toUpperCase()==="PM" && h!==12){
+        h+=12
+        if (h==24){h = "00"}
+    }
+    else {
+        if (h===12){
+            h = "00"
+        }
+    }
+    return(h+s.slice(2,8))
 }
 
 function main() {
