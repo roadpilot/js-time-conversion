@@ -31,14 +31,12 @@ function readLine() {
 
 function timeConversion(s) {
     // Write your code here
-    let h = parseInt(s.slice(0,2))
-    if (h===12 && s.slice(8).toUpperCase()==="AM"){
-            h = "00"
-    }
-    if (h<12 && s.slice(8).toUpperCase()==="PM"){
-        h+=12
-    }
-    return(("0"+h).slice(-2)+s.slice(2,8))
+    let hour = parseInt(s.slice(0,2))
+    let PM = (s.slice(8))
+    if (PM==="PM" && hour<12) hour+=12
+    if (PM==="AM" && hour==12) hour="00"
+    console.log(hour,PM)
+    return(("0"+hour).slice(-2)+(s.replace(/[AP]M/gi,"").slice(2)))
 }
 
 function main() {
